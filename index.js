@@ -25,7 +25,7 @@ app.post('/register', function(req, res){
 
 });
 
-app.post('/followList', function (req,res){
+app.post('/followingList', function (req,res){
     var info = db.getFollowers(req.body.username);
     if (info == null){
         res.send("error");    
