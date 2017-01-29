@@ -26,8 +26,13 @@ app.post('/register', function(req, res){
 });
 
 app.post('/followList', function (req,res){
-    var info = 
-})
+    var info = db.getFollowers(req.body.username);
+    if (info == null){
+        res.send("error");    
+        return;
+    }
+    res.send(info);
+});
 
 var port = process.env.PORT || 8080;
 app.listen(port);
