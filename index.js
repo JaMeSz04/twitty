@@ -1,5 +1,3 @@
-
-
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
@@ -27,6 +25,9 @@ app.post('/register', function(req, res){
 
 });
 
-var port = process.env.PORT || 8080;
+app.post('/followList', function (req,res){
+    var info = 
+})
 
+var port = process.env.PORT || 8080;
 app.listen(port);
