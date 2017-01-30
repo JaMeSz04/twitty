@@ -9,11 +9,15 @@ function register(username,password,name,email){
 }
 
 function login(username, password){
-    var query = "SELECT * from USERLIST WHERE username = '" + username + "'";
+    var query = "SELECT * from USERLIST WHERE username = '" + username + "' AND password = '" + password + "'";
     db.all(query, function (error, rows){
+        if (error){
+            return null;
+        }
         console.log("erorr : " + error);
-        console.log("rows : " + rows);;
+        console.log("rows : " + rows);
         console.dir(rows);
+        return rows;
     });
 }
 
