@@ -2,8 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 var db = require('./database.js');
-
-app.use(bodyParser.json());
+app.use(bodyParser. json());
 
 app.post('/login', function(req,res){
     var info = db.login(req.body.username, req.body.password);
@@ -16,6 +15,7 @@ app.post('/login', function(req,res){
 });
 
 app.post('/register', function(req, res){
+    console.dir(req.body);
     var result = db.register(req.body.username, req.body.password, req.body.name, req.body.email);
     if (result){
         res.send("success");
