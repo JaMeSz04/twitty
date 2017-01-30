@@ -15,7 +15,7 @@ app.post('/login', function(req,res){
 });
 
 app.post('/register', function(req, res){
-    console.dir(req.body);
+    
     var result = db.register(req.body.username, req.body.password, req.body.name, req.body.email);
     if (result){
         res.send("success");

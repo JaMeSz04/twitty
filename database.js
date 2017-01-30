@@ -5,11 +5,9 @@ var db = new sqlite.Database('twitty-db.db');
 module.exports = {
   
  register : function (username,password,name,email){
-    console.log("username : " + username);
     var query = "INSERT INTO USERLIST(username,password,name,email) VALUES ('" + username + "','" + password + "','" + name + "','" + email +"')" ;
     db.run(query, function (error){
         if (error){
-            console.log(error);
             return null;
         }
     });
@@ -24,9 +22,7 @@ module.exports = {
             if (error){
                 return null;
             }
-            console.log("erorr : " + error);
-            console.log("rows : " + rows);
-            console.dir(rows);
+
             return rows;
         });
     },
@@ -37,8 +33,7 @@ module.exports = {
             if (error){
                 return null;
             }
-            console.log("rows : " );
-            console.dir(rows);
+ 
             return rows;
         })
     }
