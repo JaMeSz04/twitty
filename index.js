@@ -34,5 +34,12 @@ app.post('/followingList', function (req,res){
     res.send(info);
 });
 
+app.post('./newsfeed'), function (req, res){
+    var following  = db.getFollowers(req.body.username);
+    for (var i = 0 ; i < following.length ; i++){
+        
+    }
+}
+
 var port = process.env.PORT || 8080;
 app.listen(port);
