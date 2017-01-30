@@ -5,7 +5,13 @@ var db = new sqlite.Database('twitty-db.db');
 
 function register(username,password,name,email){
     var query = "INSERT INTO USERLIST(username,password,name,email) VALUES ('" + username + "','" + password + "','" + name + "','" + email +"')" ;
-    db.run(query);
+    db.run(query, function (error){
+        if (error){
+            return null;
+        }
+    });
+
+    return 1;
 }
 
 function login(username, password){
