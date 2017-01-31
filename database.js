@@ -13,7 +13,7 @@ module.exports = {
     });
 
     return 1;
-},
+    },
 
     login : function (username, password){
         var query = "SELECT * from USERLIST WHERE username = '" + username + "' AND password = '" + password + "'";
@@ -34,6 +34,15 @@ module.exports = {
                 return null;
             }
  
+            return rows;
+        })
+    },
+    getNewsfeed : function (username){
+        var query = "SELECT name, post, type , reOf FROM NEWS_FEED WHERE username = '" + username + "'";
+        db.all(query , function(error, rows){
+            if (error){
+                return null;
+            }
             return rows;
         })
     }
